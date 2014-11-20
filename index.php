@@ -11,7 +11,8 @@ and open the template in the editor.
   </head>
   <body>
     <?php
-      echo "hello world";
+    //gets the file
+      require_once(__DIR__ . "/controller/create-db.php");
     ?>
   </body>
 </html>
