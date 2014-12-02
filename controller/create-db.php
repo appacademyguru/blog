@@ -6,8 +6,19 @@ $connection = new mysqli($host, $username, $password);
 if($connection->connect_error){
   die("Error: ".$connection->connect_error);
 }
+$exists = $connection->select_db($database);
+//checks if the database exists
+if(!$exists){
+  //if it doesn't, creates it
+  $query = $connection->query("CREATE DATABASE $database");
+  
+  if($query){
+    "Successfully created database: ". database;
+  }
+}
+//if it does, echoes message
 else{
-  echo "Success: ".$connection->host_info;
+  echo "Database already exists";
 }
 
 $connection->close();
